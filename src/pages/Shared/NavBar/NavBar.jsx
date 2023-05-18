@@ -28,7 +28,7 @@ const Navbar = () => {
     return (
         <nav className="flex items-center justify-between bg-gray-800 p-4">
             <div className="flex items-center">
-                <img style={{ 'height': '20vh' }} src={logo} alt="" />
+                <img style={{ 'height': '15vh' }} src={logo} alt="" />
                 <span className="text-white text-lg font-bold">TOY EMPORIUM</span>
             </div>
             <div className="flex items-center">
