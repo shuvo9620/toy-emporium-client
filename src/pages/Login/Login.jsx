@@ -61,7 +61,10 @@ const Login = () => {
                         <label htmlFor="password" className="block mb-1 font-medium">Password</label>
                         <input type="password" placeholder='Your Password' name='password' id="password" className="w-full border-gray-300 input input-bordered rounded-md p-2" />
                     </div>
-                    <input className="w-full btn bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600" type="submit" value="Login" />
+                    {/* <input className="w-full btn bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600" type="submit" value="Login" /> */}
+                    <div>
+                        <input type="submit" value="Login" className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600" />
+                    </div>
                     <div className="text-center">
                         <button onClick={handleLoginByGoogle} className='me-4 btn btn-active'>
                             <FontAwesomeIcon icon={faGoogle} />

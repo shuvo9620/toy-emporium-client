@@ -13,7 +13,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="flex items-center justify-between bg-gray-700 p-4">
+        <nav className="flex items-center justify-between rounded-box bg-gray-700 p-4">
             <div className="flex items-center">
                 <Link to='/'><img style={{ 'height': '15vh' }} src={logo} alt="" /></Link>
                 <Link to='/' className="text-white text-lg ps-96 font-bold">TOY EMPORIUM</Link>

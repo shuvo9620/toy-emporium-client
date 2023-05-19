@@ -14,7 +14,7 @@ const ToysCard = ({ toy }) => {
                 <h2 className="card-title">Seller Name: {sellerName}</h2>
                 <h2 className="card-title">Subcategory: {subcategory}</h2>
                 <h2 className="card-title">AvailableQuantity: {availableQuantity}</h2>
-                <p className="text-xl text-orange-500">Price: ${price}</p>
+                <p className="text-xl font-bold text-orange-500">Price: ${price}</p>
 
                 
                     <Link className="text-center mt-4">
