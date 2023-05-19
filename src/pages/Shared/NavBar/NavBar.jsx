@@ -1,68 +1,45 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import logo from '../../../assets/images/logo.png'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const Navbar = () => {
-    const [loggedIn, setLoggedIn] = useState(false);
-    const [username, setUsername] = useState('');
+    const { user, logOut } = useContext(AuthContext);
 
-    const handleLogin = () => {
-        setLoggedIn(true);
-        setUsername('Shuvo');
-    };
-
-    const handleLogout = () => {
-        setLoggedIn(false);
-        setUsername('');
-    };
-
-    const handleMouseEnter = () => {
-        if (loggedIn) {
-            document.getElementById('profile-name').style.display = 'block';
-        }
-    };
-
-    const handleMouseLeave = () => {
-        document.getElementById('profile-name').style.display = 'none';
-    };
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
 
     return (
         <nav className="flex items-center justify-between bg-gray-700 p-4">
             <div className="flex items-center">
-                <img style={{ 'height': '15vh' }} src={logo} alt="" />
-                <span className="text-white text-lg ps-96 ms-16 font-bold">TOY EMPORIUM</span>
+                <Link to='/'><img style={{ 'height': '15vh' }} src={logo} alt="" /></Link>
+                <Link to='/' className="text-white text-lg ps-96 font-bold">TOY EMPORIUM</Link>
             </div>
             <div className="flex items-center">
                 <Link to='/' className="text-white px-4 hover:text-gray-300">Home</Link>
                 <Link to="/toys" className="text-white px-4 hover:text-gray-300">All Toys</Link>
-                {loggedIn && (
+                {user && (
                     <Link to="/my-toys" className="text-white px-4 hover:text-gray-300">My Toys</Link>
                 )}
-                {loggedIn && (
+                {user && (
                     <Link to="/add-toy" className="text-white px-4 hover:text-gray-300">Add A Toy</Link>
                 )}
                 <Link to="/blogs" className="text-white px-4 hover:text-gray-300">Blogs</Link>
-                {loggedIn ? (
-                    <div className="flex items-center">
-                        <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-
-                            <img src="/path/to/profile-picture.png" alt="Profile Picture" className="w-8 h-8 rounded-full cursor-pointer" />
-                            {username && (
-                                <span
-                                    id="profile-name" className="absolute bottom-0 right-0 bg-white px-1 py-0.5 text-xs rounded-md hidden">
-                                    {username}
-                                </span>
-                            )}
-                        </div>
-                        <button onClick={handleLogout} className="text-white ml-2" >
-                            Logout
-                        </button>
-                    </div>
-                ) : (
-                    <button onClick={handleLogin} className="text-white">
-                        Login
-                    </button>
-                )}
+                <div className='flex items-center'>
+                    {
+                        user ? <>
+                            <img style={{ height: '40px' }} src={user.photoURL} title={user.displayName} className='rounded' alt="" />
+                            <button onClick={handleLogOut} className='ms-4 btn btn-secondary'>Log out</button>
+                        </>
+                            :
+                            <Link to='/login'>
+                                <button className='btn btn-primary'>Login</button>
+                            </Link>
+                    }
+                </div>
             </div>
         </nav>
     );

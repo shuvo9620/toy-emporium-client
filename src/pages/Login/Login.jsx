@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { AuthContext } from '../../providers/AuthProvider';
@@ -10,12 +10,6 @@ const Login = () => {
 
     const { signIn } = useContext(AuthContext);
     const { createUserByGoogle } = useContext(AuthContext);
-    const location = useLocation();
-    const navigate = useNavigate();
-
-    console.log(location);
-    const from = location.state?.from?.pathname || '/';
-
 
 
     const handleLogin = event => {
@@ -29,31 +23,30 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                setUser(user)
-                navigate(from, { replace: true });
+                setUser(loggedUser)
                 setError('');
                 form.reset();
             })
             .catch(error => {
-                console.error(error.message);
+                console.error(error);
                 setError(error.message);
             })
+
+
+
     }
 
     const handleLoginByGoogle = () => {
         createUserByGoogle()
             .then(result => {
-                const loggedInUser = result.user;
-                console.log(loggedInUser);
-                setUser(loggedInUser);
-                Navigate(from, { replace: true });
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                setUser(loggedUser);
             })
             .catch(error => {
                 console.error(error.message);
-                setError(error.message);
             })
     }
-
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
@@ -68,9 +61,9 @@ const Login = () => {
                         <label htmlFor="password" className="block mb-1 font-medium">Password</label>
                         <input type="password" placeholder='Your Password' name='password' id="password" className="w-full border-gray-300 input input-bordered rounded-md p-2" />
                     </div>
-                    <input className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600" type="submit" value="Login" />
+                    <input className="w-full btn bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600" type="submit" value="Login" />
                     <div className="text-center">
-                        <button onClick={handleLoginByGoogle} className='me-4 btn btn-active	'>
+                        <button onClick={handleLoginByGoogle} className='me-4 btn btn-active'>
                             <FontAwesomeIcon icon={faGoogle} />
                             <span className='ms-2'>Login in with Google</span>
                         </button>

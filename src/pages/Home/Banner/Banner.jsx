@@ -7,7 +7,7 @@ import img6 from '../../../assets/banners/toy-6.jpg'
 import img7 from '../../../assets/banners/toy-7.jpg'
 const Banner = () => {
     return (
-        <div className="carousel carousel-center rounded-box mt-4">
+        <div className="carousel carousel-center rounded-box mb-6 mt-4">
             <div className="carousel-item">
                 <img style={{ 'height': '100vh', 'width': '80vh' }} src={img7} />
             </div>
