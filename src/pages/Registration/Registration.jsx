@@ -1,14 +1,30 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Registration = () => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [photoURL, setPhotoURL] = useState('');
+    // const [name, setName] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [password, setPassword] = useState('');
+    // const [photoURL, setPhotoURL] = useState('');
 
-    const handleRegistration = () => {
+    const { createUser } = useContext(AuthContext);
 
+    const handleRegistration = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const photo = form.photo.value;
+        console.log(name, email, password, photo);
+
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error));
     };
 
     return (
@@ -32,12 +48,9 @@ const Registration = () => {
                         <label htmlFor="photoURL" className="block mb-1 font-medium">Photo URL</label>
                         <input type="text" placeholder='Your photo url' name='photo' id="photoURL" className="w-full input input-bordered border-gray-300 rounded-md p-2" />
                     </div>
-                    <button
-                        type="button"
-                        className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
-                    >
-                        Register
-                    </button>
+                    <div>
+                        <input type="submit" value="Register" className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600" />
+                    </div>
                     <div className="text-center">
                         <span>Already have an account? </span>
                         <Link to="/login" className="text-blue-800 font-bold hover:underline">Please Login</Link>
