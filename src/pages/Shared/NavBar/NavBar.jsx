@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import logo from '../../../assets/images/logo.png'
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -26,21 +27,21 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="flex items-center justify-between bg-gray-800 p-4">
+        <nav className="flex items-center justify-between bg-gray-700 p-4">
             <div className="flex items-center">
                 <img style={{ 'height': '15vh' }} src={logo} alt="" />
-                <span className="text-white text-lg font-bold">TOY EMPORIUM</span>
+                <span className="text-white text-lg ps-96 ms-16 font-bold">TOY EMPORIUM</span>
             </div>
             <div className="flex items-center">
-                <a href="/" className="text-white px-4 hover:text-gray-300">Home</a>
-                <a href="/toys" className="text-white px-4 hover:text-gray-300">All Toys</a>
+                <Link to='/' className="text-white px-4 hover:text-gray-300">Home</Link>
+                <Link to="/toys" className="text-white px-4 hover:text-gray-300">All Toys</Link>
                 {loggedIn && (
-                    <a href="/my-toys" className="text-white px-4 hover:text-gray-300">My Toys</a>
+                    <Link to="/my-toys" className="text-white px-4 hover:text-gray-300">My Toys</Link>
                 )}
                 {loggedIn && (
-                    <a href="/add-toy" className="text-white px-4 hover:text-gray-300">Add A Toy</a>
+                    <Link to="/add-toy" className="text-white px-4 hover:text-gray-300">Add A Toy</Link>
                 )}
-                <a href="/blogs" className="text-white px-4 hover:text-gray-300">Blogs</a>
+                <Link to="/blogs" className="text-white px-4 hover:text-gray-300">Blogs</Link>
                 {loggedIn ? (
                     <div className="flex items-center">
                         <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
