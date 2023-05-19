@@ -5,7 +5,7 @@ const Footer = () => {
             <div>
                 <img style={{ 'height': '15vh' }} src={logo} alt="" />
                 <p className="font-bold">
-                    Toy Emporium <br />Providing baby toys since 2023 <br />
+                    Toy Emporium <br />Providing Baby toys since 2000 <br />
                     Address <br /> Pabna Dhaka Bangladesh
                 </p>
                 <p>Copyright © 2023 - All right reserved</p>
