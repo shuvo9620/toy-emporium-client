@@ -20,7 +20,7 @@ const Navbar = () => {
             </div>
             <div className="flex items-center">
                 <Link to='/' className="text-white px-4 hover:text-gray-300">Home</Link>
-                <Link to="/toys" className="text-white px-4 hover:text-gray-300">All Toys</Link>
+                <Link to="/toylist" className="text-white px-4 hover:text-gray-300">All Toys</Link>
                 {user && (
                     <Link to="/my-toys" className="text-white px-4 hover:text-gray-300">My Toys</Link>
                 )}
