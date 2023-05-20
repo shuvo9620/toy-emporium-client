@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const ToysList = () => {
     const toyData = useLoaderData();
@@ -24,7 +24,7 @@ const ToysList = () => {
                             <td>
                                 <div className="flex items-center space-x-3">
                                     <div className="avatar">
-                                        <div className="mask mask-squircle w-12 h-12">
+                                        <div className="mask mask-squircle w-20 h-20">
                                             <img src= {toy.pictureUrl} />
                                         </div>
                                     </div>
@@ -39,7 +39,7 @@ const ToysList = () => {
                             <td>{toy.availableQuantity}</td>
 
                             <td>
-                                <button className="btn btn-ghost btn-xs">details</button>
+                                <Link className="btn btn-active" to={`/toydetails/${toy._id}`}>View Details</Link>
                             </td>
                         </tr>
                     ))}
