@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 
 const ToysCard = ({ toy }) => {
-    const { name, sellerName, price, subcategory, availableQuantity, pictureUrl } = toy;
+    // const { name, sellerName, price, subcategory, availableQuantity, pictureUrl } = toy;
+    const { pictureUrl } = toy;
 
     console.log(pictureUrl);
     return (
@@ -9,7 +10,7 @@ const ToysCard = ({ toy }) => {
             <figure className="px-10 pt-10">
                 <img style={{ 'height': '50vh', 'width': '50vh' }} className="rounded-box" src={pictureUrl} alt="toy " />
             </figure>
-            <div className="card-body">
+            {/* <div className="card-body">
                 <h2 className="card-title">Name: {name}</h2>
                 <h2 className="card-title">Seller Name: {sellerName}</h2>
                 <h2 className="card-title">Subcategory: {subcategory}</h2>
@@ -21,7 +22,7 @@ const ToysCard = ({ toy }) => {
                         <button className="btn btn-active">View Details</button>
                     </Link>
                 
-            </div>
+            </div> */}
         </div>
     );
 };

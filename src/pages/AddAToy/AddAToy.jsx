@@ -28,7 +28,7 @@ const AddAToy = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify({ myData })
+            body: JSON.stringify( myData )
         })
             .then(res => res.json())
             .then(info => {
@@ -86,7 +86,7 @@ const AddAToy = () => {
                     </label>
                     <input
                         type="text"
-                        name="subCategory"
+                        name="subcategory"
                         className="w-full border-gray-300 input input-bordered rounded-md p-2"
                     />
                 </div>
