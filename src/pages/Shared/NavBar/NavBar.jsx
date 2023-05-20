@@ -25,7 +25,7 @@ const Navbar = () => {
                     <Link to="/my-toys" className="text-white px-4 hover:text-gray-300">My Toys</Link>
                 )}
                 {user && (
-                    <Link to="/add-toy" className="text-white px-4 hover:text-gray-300">Add A Toy</Link>
+                    <Link to="/addatoy" className="text-white px-4 hover:text-gray-300">Add A Toy</Link>
                 )}
                 <Link to="/blogs" className="text-white px-4 hover:text-gray-300">Blogs</Link>
                 <div className='flex items-center'>
