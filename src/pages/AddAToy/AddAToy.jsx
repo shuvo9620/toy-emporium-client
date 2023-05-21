@@ -1,11 +1,13 @@
+import { useContext } from "react";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const AddAToy = () => {
-
+    const { user } = useContext(AuthContext);
+    console.log(user);
     const handleSubmit = event => {
 
         event.preventDefault();
-        // setSuccess('');
-        // setError('');
         const form = event.target;
         const pictureUrl = form.pictureUrl.value;
         const name = form.name.value;
@@ -16,24 +18,28 @@ const AddAToy = () => {
         const rating = form.rating.value;
         const availableQuantity = form.availableQuantity.value;
         const description = form.description.value;
-        
+
         const myData = {
-            pictureUrl, name, sellerName, sellerEmail, subCategory, price, rating, availableQuantity,description
+            pictureUrl, name, sellerName, sellerEmail, subCategory, price, rating, availableQuantity, description
         }
 
-        console.log(myData);
 
         fetch('http://localhost:5000/addToy', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify( myData )
+            body: JSON.stringify(myData)
         })
             .then(res => res.json())
             .then(info => {
-                alert('Toy Added');
-                console.log(info);
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'success',
+                    title: 'Doll added successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
             })
     };
     return (
@@ -68,6 +74,7 @@ const AddAToy = () => {
                         type="text"
                         name="sellerName"
                         className="w-full border-gray-300 input input-bordered rounded-md p-2"
+                        defaultValue={user?.displayName}
                     />
                 </div>
                 <div className="mb-4">
@@ -78,6 +85,7 @@ const AddAToy = () => {
                         type="email"
                         name="sellerEmail"
                         className="w-full border-gray-300 input input-bordered rounded-md p-2"
+                        defaultValue={user?.email}
                     />
                 </div>
                 <div className="mb-4">

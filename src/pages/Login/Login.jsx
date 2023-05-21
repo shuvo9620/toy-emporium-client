@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { AuthContext } from '../../providers/AuthProvider';
@@ -7,10 +7,12 @@ import { AuthContext } from '../../providers/AuthProvider';
 const Login = () => {
     const [error, setError] = useState('');
     const [user, setUser] = useState(null);
-
     const { signIn } = useContext(AuthContext);
     const { createUserByGoogle } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
 
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogin = event => {
         event.preventDefault();
@@ -23,7 +25,8 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                setUser(loggedUser)
+                setUser(loggedUser);
+                navigate(from, { replace: true })
                 setError('');
                 form.reset();
             })
@@ -42,6 +45,7 @@ const Login = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 setUser(loggedUser);
+                navigate(from,{replace:true})
             })
             .catch(error => {
                 console.error(error.message);
