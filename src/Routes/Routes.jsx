@@ -32,12 +32,12 @@ const router = createBrowserRouter([
         {
           path: '/toylist',
           element:<ToysList></ToysList>,
-          // loader: () => fetch('http://localhost:5000/toys')
+          // loader: () => fetch('https://toy-emporium-server-ten.vercel.app/toys')
         },
         {
           path: 'toydetails/:id',
           element: <PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/toydetails/${params.id}`)
+          loader: ({params}) => fetch(`https://toy-emporium-server-ten.vercel.app/toydetails/${params.id}`)
         },
         {
           path: 'addatoy',

@@ -26,7 +26,7 @@ const AddAToy = () => {
         }
 
 
-        fetch('http://localhost:5000/addToy', {
+        fetch('https://toy-emporium-server-ten.vercel.app/addToy', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

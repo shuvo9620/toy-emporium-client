@@ -21,7 +21,7 @@ const MyToys = () => {
     };
 
     useEffect(() => {
-        fetch(`http://localhost:5000/my_toy/${user?.email}?sortOrder=${sortOrder}&sortBy=${sortByPrice}`)
+        fetch(`https://toy-emporium-server-ten.vercel.app/my_toy/${user?.email}?sortOrder=${sortOrder}&sortBy=${sortByPrice}`)
             .then(res => res.json())
             .then(data => {
                 data.forEach(toy => {
@@ -32,7 +32,7 @@ const MyToys = () => {
     }, [user, sortOrder, sortByPrice, control]);
 
     const handleUpdateToy = (data) => {
-        fetch(`http://localhost:5000/updateToy/${data._id}`, {
+        fetch(`https://toy-emporium-server-ten.vercel.app/updateToy/${data._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -56,7 +56,7 @@ const MyToys = () => {
 
     const handleDeleteToy = (id) => {
 
-        fetch(`http://localhost:5000/delete/${id}`, {
+        fetch(`https://toy-emporium-server-ten.vercel.app/delete/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())

@@ -4,6 +4,7 @@ import AllToys from "../AllToys/AllToys";
 import Banner from "../Banner/Banner";
 import Category from "../Category/Category";
 import Map from "../Map/Map";
+import Partner from "../Partner/Partner";
 
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
             <Banner></Banner>
             <AllToys></AllToys>
             <Category></Category>
+            <Partner></Partner>
             <Map></Map>
         </div>
     );
