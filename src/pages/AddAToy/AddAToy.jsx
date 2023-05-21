@@ -11,7 +11,7 @@ const AddAToy = () => {
         const name = form.name.value;
         const sellerName = form.sellerName.value;
         const sellerEmail = form.sellerEmail.value;
-        const subCategory = form.subCategory.value;
+        const subCategory = form.subcategory.value;
         const price = form.price.value;
         const rating = form.rating.value;
         const availableQuantity = form.availableQuantity.value;

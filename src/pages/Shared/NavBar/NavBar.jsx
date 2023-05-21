@@ -22,7 +22,7 @@ const Navbar = () => {
                 <Link to='/' className="text-white px-4 hover:text-gray-300">Home</Link>
                 <Link to="/toylist" className="text-white px-4 hover:text-gray-300">All Toys</Link>
                 {user && (
-                    <Link to="/my-toys" className="text-white px-4 hover:text-gray-300">My Toys</Link>
+                    <Link to="/myToys" className="text-white px-4 hover:text-gray-300">My Toys</Link>
                 )}
                 {user && (
                     <Link to="/addatoy" className="text-white px-4 hover:text-gray-300">Add A Toy</Link>
