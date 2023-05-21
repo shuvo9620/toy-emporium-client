@@ -28,7 +28,22 @@ const MyToys = () => {
       });
   }, [user, sortOrder, sortByPrice, control]);
 
- 
+  const handleUpdateToy = (data) => {
+    fetch(`http://localhost:5000/updateToy/${data._id}`, {
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.modifiedCount > 0) {
+          alert('Data updated successfully');
+          setControl(!control);
+        }
+      });
+  };
 
   const handleDeleteToy = (id) => {
     const confirm = window.confirm('Are you sure you want to delete?');
