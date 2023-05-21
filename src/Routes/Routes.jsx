@@ -8,6 +8,7 @@ import ToyDetails from "../pages/ToysList/ToyDetails/ToyDetails";
 import AddAToy from "../pages/AddAToy/AddAToy";
 import MyToys from "../pages/MyToys/MyToys";
 import PrivateRoute from "./PrivateRoute";
+import Blogs from "../pages/Blogs/Blogs";
 
 const router = createBrowserRouter([
     {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
         {
           path:'myToys',
           element: <PrivateRoute><MyToys></MyToys></PrivateRoute>
+        },
+        {
+          path: 'blogs',
+          element: <Blogs></Blogs>
         }
       ]
     },
