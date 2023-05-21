@@ -2,8 +2,10 @@ import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { updateProfile } from 'firebase/auth';
+import useTitle from '../hooks/useTitle';
 
 const Registration = () => {
+    useTitle('Registration')
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
 

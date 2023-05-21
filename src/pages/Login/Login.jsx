@@ -3,8 +3,10 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { AuthContext } from '../../providers/AuthProvider';
+import useTitle from '../hooks/useTitle';
 
 const Login = () => {
+    useTitle('Login')
     const [error, setError] = useState('');
     const [user, setUser] = useState(null);
     const { signIn } = useContext(AuthContext);
