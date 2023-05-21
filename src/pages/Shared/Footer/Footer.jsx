@@ -1,3 +1,4 @@
+import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import logo from '../../../assets/images/logo.png';
 
 const Footer = () => {
@@ -25,22 +26,22 @@ const Footer = () => {
                     </div>
                     <div>
                         <h3 className="text-xl font-bold">Contact Us</h3>
-                        <p className="mt-4">123 Street, City, Country</p>
-                        <p>Email: info@yourbrand.com</p>
-                        <p>Phone: +1 234 5678</p>
+                        <p className="mt-4">Pabna, Dhaka, Bangladesh</p>
+                        <p>Email: info@toyemporium.com</p>
+                        <p>Phone: +880 1645026688</p>
                     </div>
                     <div>
                         <h3 className="text-xl font-bold">Follow Us</h3>
                         <div className="flex mt-4">
-                            <a href="#" className="mr-4"><i className="fab fa-facebook-f text-white"></i></a>
-                            <a href="#" className="mr-4"><i className="fab fa-twitter text-white"></i></a>
-                            <a href="#" className="mr-4"><i className="fab fa-instagram text-white"></i></a>
+                            <a href="#" className="mr-4"><FaFacebook className="text-white" /></a>
+                            <a href="#" className="mr-4"><FaTwitter className="text-white" /></a>
+                            <a href="#" className="mr-4"><FaInstagram className="text-white" /></a>
                         </div>
                     </div>
                 </div>
                 <hr className="my-8 border-gray-700" />
                 <p className="text-center text-sm">
-                    &copy; {new Date().getFullYear()} Your Brand. All rights reserved.
+                     Toy Emporium &copy; {new Date().getFullYear()} All rights reserved.
                 </p>
             </div>
         </footer>
